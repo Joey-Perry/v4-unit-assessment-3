@@ -50,3 +50,15 @@
   width: 35%;
   border: 1px solid black;
 }
+
+button {
+  padding: 7px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

@@ -1,4 +1,9 @@
 .shelf {
     width: 100%;
-    border: 2px solid green;
+    border-bottom: 2px solid rgb(177, 58, 58);
+    margin-bottom: 15px;
+}
+
+.shelf-book {
+    margin-bottom: 10px;
 }

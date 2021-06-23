@@ -28,11 +28,15 @@ class App extends Component {
 
   addToShelf(e){
     const selectedBook = e.target.parentNode.childNodes[1].innerText;
-    this.setState((state)=> {
-      return {
-        shelf: [...state.shelf, selectedBook]
-      }
-    })
+    if (this.state.shelf.includes(selectedBook)){
+      console.log(`This book is already on your shelf!`);
+    } else {
+      this.setState((state)=> {
+        return {
+          shelf: [...state.shelf, selectedBook]
+        }
+      })
+    }
   }
 
   clearShelf(){
@@ -41,7 +45,7 @@ class App extends Component {
 
   filterBooks(input){
     let booksCopy = this.state.books;
-    const filteredBooks = booksCopy.filter(book => book.title.toLowerCase().includes(input));
+    const filteredBooks = booksCopy.filter(book => book.title.toLowerCase().includes(input) || book.author.toLowerCase().includes(input));
     this.setState({ books: filteredBooks })
   }
 
