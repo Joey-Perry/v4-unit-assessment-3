@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -28,11 +33,20 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.book-area {
+  display: flex;
+  border: 2px solid black;
+  width: 100%;
+}
+
+.book-list {
+  /* border: 2px solid blue; */
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-shelf {
+  width: 35%;
+  border: 1px solid black;
 }
