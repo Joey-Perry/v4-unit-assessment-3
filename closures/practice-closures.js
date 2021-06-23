@@ -9,12 +9,18 @@
   */
   
   //CODE HERE
-
+  function myFunc(){
+    const myStr = 'super secret string';
+    const getSecretString = () => {
+      return myStr;
+    };
+    return getSecretString;
+  }
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
   //CODE HERE
-  
+  const secretString = myFunc();
   
   ////////////PROBLEM 2////////////
 
@@ -29,27 +35,40 @@
   */
   
   //CODE HERE
-
+function lightSwitch(){
+  let isTheLightOn = false;
+  function flipTheSwitch(){
+    if (isTheLightOn){
+      isTheLightOn = false;
+      return 'The light is off'
+    } else {
+      isTheLightOn = true;
+      return 'The light is on'
+    }
+  }
+  return flipTheSwitch;
+}
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
   //CODE HERE
-
+const kitchenSwitch = lightSwitch();
   
   //Invoke kitchenSwitch.
 
   //CODE HERE
-  
+  kitchenSwitch();
   
   //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
 
   //CODE HERE
   
-  
+  const bathroomSwitch = lightSwitch();
   //Invoke bathroomSwitch twice.
   
   //CODE HERE
-
+bathroomSwitch();
+bathroomSwitch();
   
   
   ////////////PROBLEM 3////////////
@@ -64,7 +83,26 @@
   */
 
   //CODE HERE
+function plantTracker(){
+  const plant = 'fern';
+  let height = 12;
 
+  function readInfo(){
+    return `This is a ${plant} plant that is ${height} inches tall.`;
+  }
+  function waterPlant(){
+    height += 1;
+    return height;
+  }
+  function prunePlant(){
+    height -= 1;
+    return height;
+  }
+
+  return {
+    readInfo, waterPlant, prunePlant
+  }
+}
 
   ////////////PROBLEM 4////////////
 
@@ -79,14 +117,33 @@
   */
 
   //CODE HERE
+function inventory(){
+  let products = [];
 
+  function readProducts(){
+    return products;
+  }
+  function addToProducts(product){
+    products.push(product);
+    return products;
+  }
+  function deleteFromProducts(productToDelete){
+    const indexOfProductToDelete = products.indexOf(productToDelete);
+    products.splice(indexOfProductToDelete, 1);
+    return products;
+  }
+
+  return {
+    readProducts, addToProducts, deleteFromProducts
+  }
+}
 
   /*
     Create a variable called 'shoes' whose value is the invocation of inventory.
   */
 
   //CODE HERE
-
+const shoes = inventory();
 
   /*
     Add an item to your shoes array using the addToProducts function
@@ -94,3 +151,4 @@
 
   //CODE HERE
 
+shoes.addToProducts('Adidas');
