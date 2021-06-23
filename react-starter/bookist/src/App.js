@@ -26,25 +26,35 @@ class App extends Component {
     console.log('content loaded');
   }
 
-  addToShelf(){
-
+  addToShelf(e){
+    const selectedBook = e.target.parentNode.childNodes[1].innerText;
+    this.setState((state)=> {
+      return {
+        shelf: [...state.shelf, selectedBook]
+      }
+    })
   }
+
   clearShelf(){
-
+    this.setState({shelf: [] })
   }
-  filterBooks(){
 
+  filterBooks(input){
+    let booksCopy = this.state.books;
+    const filteredBooks = booksCopy.filter(book => book.title.toLowerCase().includes(input));
+    this.setState({ books: filteredBooks })
   }
+
   reset(){
-
+    this.setState({ books: data });
   }
 
   render(){
     return (
       <div className="App">
         <Header />
-        <SearchBar />
-        
+        <SearchBar handleSearch={this.filterBooks} handleClear={this.reset}/>
+
         <section className='book-area'>
 
           <section className='book-list'>
@@ -52,7 +62,7 @@ class App extends Component {
           </section>
 
           <section className='book-shelf'>
-            <Shelf />
+            <Shelf shelf={this.state.shelf} handleClick={this.clearShelf}/>
           </section>
 
         </section>
